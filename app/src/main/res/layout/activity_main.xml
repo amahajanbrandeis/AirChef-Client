@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.cs.brandeis.marius.homecooked.MainActivity">
+
+    <TextView
+        android:text="Location:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:id="@+id/locationTextView"
+        android:layout_below="@+id/ingredientsTextView"
+        android:layout_alignLeft="@+id/ingredientsTextView"
+        android:layout_alignStart="@+id/ingredientsTextView" />
+
+    <TextView
+        android:text="Ingredients:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ingredientsTextView"
+        android:layout_below="@+id/dishNameEditText"
+        android:layout_alignRight="@+id/mealNameTextView"
+        android:layout_alignEnd="@+id/mealNameTextView"
+        android:layout_marginTop="21dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/dishNameEditText"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_alignBaseline="@+id/mealNameTextView"
+        android:layout_alignBottom="@+id/mealNameTextView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="Dish Name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Ingredients"
+        android:ems="10"
+        android:id="@+id/ingredientsEditText"
+        android:layout_alignBaseline="@+id/ingredientsTextView"
+        android:layout_alignBottom="@+id/ingredientsTextView"
+        android:layout_alignLeft="@+id/dishNameEditText"
+        android:layout_alignStart="@+id/dishNameEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Location"
+        android:ems="10"
+        android:id="@+id/locationEditText"
+        android:layout_below="@+id/ingredientsEditText"
+        android:layout_alignLeft="@+id/ingredientsEditText"
+        android:layout_alignStart="@+id/ingredientsEditText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Price"
+        android:ems="10"
+        android:id="@+id/priceEditText"
+        android:layout_below="@+id/locationEditText"
+        android:layout_alignLeft="@+id/locationEditText"
+        android:layout_alignStart="@+id/locationEditText" />
+
+    <TextView
+        android:text="Price:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/priceTextView"
+        android:layout_alignBaseline="@+id/priceEditText"
+        android:layout_alignBottom="@+id/priceEditText"
+        android:layout_alignLeft="@+id/locationTextView"
+        android:layout_alignStart="@+id/locationTextView" />
+
+    <TextView
+        android:text="Dish Name:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="58dp"
+        android:id="@+id/mealNameTextView"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

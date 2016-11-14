@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Homecooked</string>
+    <string name="profile_location">Location:</string>
+    <string name="profile_location_hint">Enter your dorm</string>
+    <string name="profile_bio">Bio:</string>
+    <string name="profile_bio_hint">Tell us about yourself!</string>
+    <string name="profile_eat">I eat:</string>
+    <string name="profile_eat_hint">Tell us what food you like to eat!</string>
+    <string name="profile_cook">I cook:</string>
+    <string name="profile_cook_hint">Tell us what you cook!</string>
+    <string name="profile_picture">Profile picture:</string>
+    <string name="select_picture_button">Upload image</string>
+    <string name="finish_button_text">Finish</string>
+
 </resources>

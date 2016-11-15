@@ -7,6 +7,74 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ViewMealActivity">
+    tools:context=".ViewMealActivity"
+    android:id="@+id/viewMealChef">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/viewMealTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Chicken Parmesan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Made by Big Chef"
+        android:id="@+id/viewMealChef"
+        android:layout_below="@+id/viewMealTitle"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request Meal"
+        android:id="@+id/viewMealRequestBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewMealImage"
+        android:src="@mipmap/temp_meal_img"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/viewMealDateAdded"
+        android:layout_alignLeft="@+id/viewMealDateAdded"
+        android:layout_alignStart="@+id/viewMealDateAdded" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="$5.00"
+        android:id="@+id/viewMealPrice"
+        android:layout_above="@+id/viewMealRequestBtn"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Lorem ipsum dolor sit amet,  turpis. Mauris blandit urna augue, in imperdiet ex semper ut. Nam dapibus risus vel massa feugiat, vitae tristique eros vulputate. Donec ornare felis in nisl aliquet, vel feugiat ipsum "
+        android:id="@+id/viewMealDetails"
+        android:layout_below="@+id/viewMealImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Added 15m ago"
+        android:id="@+id/viewMealDateAdded"
+        android:layout_below="@+id/viewMealChef"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -62,8 +62,10 @@ public class ExploreMealsActivity extends AppCompatActivity {
     }
 
     public void onClickViewMeal(View view) {
-        Log.d("app:", (String) view.getTag());
-        startActivity(new Intent(ExploreMealsActivity.this, ViewMealActivity.class));
+        Log.d("JSON for opened meal:", (String) view.getTag());
+        Intent intent = new Intent(ExploreMealsActivity.this, ViewMealActivity.class);
+        intent.putExtra("JSON", (String) view.getTag());
+        startActivity(intent);
     }
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
@@ -80,23 +82,21 @@ public class ExploreMealsActivity extends AppCompatActivity {
             if (jsonStr != null) {
                 try {
                     JSONObject jsonObj = new JSONObject(jsonStr);
-
-                    // Getting JSON Array node
                     JSONArray meals = jsonObj.getJSONArray("meals");
 
                     mealsList.clear();
 
-                    // looping through All Contacts
+                    // looping through all meals
                     for (int i = 0; i < meals.length(); i++) {
-                        JSONObject mealJSON = meals.getJSONObject(i);
+                        JSONObject JSONMeal = meals.getJSONObject(i);
+                        Meal meal = new Meal(JSONMeal);
+//                        String id = mealJSON.getString("_id");
+//                        String title = mealJSON.getString("title");
+//                        String details = mealJSON.getString("description");
+//                        String chef = mealJSON.getString("chef");
+//                        String dateAdded = mealJSON.getString("dateAdded");
 
-                        String id = mealJSON.getString("_id");
-                        String title = mealJSON.getString("title");
-                        String details = mealJSON.getString("description");
-                        String chef = mealJSON.getString("chef");
-                        String dateAdded = mealJSON.getString("dateAdded");
-
-                        Meal meal = new Meal(id, title, details, "ingredients", 3.00, "mods", chef, dateAdded, jsonStr);
+//                        Meal meal = new Meal(id, title, details, "ingredients", 3.00, "mods", chef, dateAdded, jsonStr);
 
                         mealsList.add(meal);
                     }

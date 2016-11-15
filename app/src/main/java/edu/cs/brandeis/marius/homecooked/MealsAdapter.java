@@ -5,6 +5,7 @@ package edu.cs.brandeis.marius.homecooked;
  */
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,6 @@ public class MealsAdapter extends BaseAdapter {
         this.list = list;
         this.context = context;
 
-        ArrayList<String> a = new ArrayList<String>();
 //        list.add(new Meal("Eggs", a, 8.05, "Yemen", "Frank Eggheart", 5/5));
     }
 
@@ -65,8 +65,11 @@ public class MealsAdapter extends BaseAdapter {
         mealTime.setText("TODO");
         mealLocation.setText(entry.getLocation());
         mealPrice.setText(Double.toString(entry.getPrice()));
+        view.setTag(entry.getJSON());
 
         return view;
     }
+
+
 }
 

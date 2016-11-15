@@ -15,8 +15,9 @@ public class Meal {
     private String location;
     private String chef;
     private String dateAdded;
+    private String JSON;
 
-    public Meal(String id, String title, String details, String ingredients, double price, String location, String chef, String dateAdded){
+    public Meal(String id, String title, String details, String ingredients, double price, String location, String chef, String dateAdded, String JSON){
         this.id = id;
         this.title = title;
         this.details = details;
@@ -25,6 +26,7 @@ public class Meal {
         this.location = location;
         this.chef = chef;
         this.dateAdded = dateAdded;
+        this.JSON = JSON;
     }
 
     public String getId() { return this.id; }
@@ -52,6 +54,8 @@ public class Meal {
     }
 
     public String getDateAdded() { return this.dateAdded; }
+
+    public String getJSON() { return this.JSON; }
 
     public void setTitle(String val){
         this.title = val;

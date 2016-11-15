@@ -10,7 +10,7 @@ import com.stormpath.sdk.StormpathConfiguration;
 import com.stormpath.sdk.ui.StormpathLoginActivity;
 import com.stormpath.sdk.ui.StormpathLoginConfig;
 
-public class AuthActivity extends AppCompatActivity {
+public class Auth extends AppCompatActivity {
 
     public static final int REQUEST_LOGIN = 422;
 

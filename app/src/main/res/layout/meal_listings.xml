@@ -12,13 +12,28 @@
         android:layout_alignBottom="@+id/newMealBtn"
         android:layout_centerHorizontal="true" />
 
-    <ListView
+
+    <android.support.v4.widget.SwipeRefreshLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:id="@+id/swipeContainer"
+
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/mealsListView"
-        android:layout_below="@+id/mealsTitleTextView" />
+        android:layout_marginTop="60dp">
+
+         <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/mealsListView"
+            android:layout_below="@+id/mealsTitleTextView" />View" />
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"

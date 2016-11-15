@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ import java.util.HashMap;
 
 public class ExploreMealsActivity extends AppCompatActivity {
 
+    private SwipeRefreshLayout swipeContainer;
     ArrayList<Meal> mealsList = new ArrayList<Meal>();
     static final String API_URL = "http://airchef-server.herokuapp.com/api/meal/";
 
@@ -42,9 +44,26 @@ public class ExploreMealsActivity extends AppCompatActivity {
         // Save button functionality
         newMealBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(context, NewMealActivity.class));
+                Intent intent = new Intent(context, ViewMealActivity.class);
+                startActivity(intent);
             }
         });
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+                new GetContacts().execute();
+            }
+        });
+    }
+
+    public void onClickViewMeal(View view) {
+        Log.d("app:", (String) view.getTag());
+        startActivity(new Intent(ExploreMealsActivity.this, ViewMealActivity.class));
     }
 
     private class GetContacts extends AsyncTask<Void, Void, Void> {
@@ -65,6 +84,8 @@ public class ExploreMealsActivity extends AppCompatActivity {
                     // Getting JSON Array node
                     JSONArray meals = jsonObj.getJSONArray("meals");
 
+                    mealsList.clear();
+
                     // looping through All Contacts
                     for (int i = 0; i < meals.length(); i++) {
                         JSONObject mealJSON = meals.getJSONObject(i);
@@ -75,7 +96,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
                         String chef = mealJSON.getString("chef");
                         String dateAdded = mealJSON.getString("dateAdded");
 
-                        Meal meal = new Meal(id, title, details, "ingredients", 3.00, "mods", chef, dateAdded);
+                        Meal meal = new Meal(id, title, details, "ingredients", 3.00, "mods", chef, dateAdded, jsonStr);
 
                         mealsList.add(meal);
                     }
@@ -102,11 +123,13 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            // Dismiss the progress dialog
+
+            // Stop refresh graphic
+            swipeContainer.setRefreshing(false);
+
+            // Set adapter
             ListView mealListing = (ListView) findViewById(R.id.mealsListView);
-
             MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, mealsList);
-
             mealListing.setAdapter(adapter);
         }
     }

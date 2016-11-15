@@ -61,14 +61,14 @@
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="ad2005328d98bbde69e1df7a4d836e42235fe40a">
+        sha1="8b11f96c6fd97c219d3ec71adfd90b0a24327966">
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c1c518c467f3ce612d889f032225a04b6da7da7b/classes.dex" />
     </item>
     <item
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="948e8013fc793dbfa544e1ad86a439d917eae81a">
+        sha1="d88fce45553dbfcd6b81d37a7d8357f3b8b392ab">
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_43d08a93bd1e669d25b10b74cc7e6290b4b81750/classes.dex" />
     </item>
     <item

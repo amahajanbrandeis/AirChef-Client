@@ -106,8 +106,10 @@
         android:text="@string/new_meal_submit_text"
         android:id="@+id/submitMealBtn"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="95dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -127,4 +129,13 @@
         android:layout_below="@+id/priceEditText"
         android:layout_alignLeft="@+id/priceEditText"
         android:layout_alignStart="@+id/priceEditText" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitMealProgressBar"
+        android:layout_above="@+id/submitMealBtn"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
 </RelativeLayout>

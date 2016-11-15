@@ -7,27 +7,35 @@ import java.util.ArrayList;
  */
 
 public class Meal {
-    private String name;
-    private ArrayList<String> ingredients;
+    private String id;
+    private String title;
+    private String details;
+    private String ingredients;
     private double price;
     private String location;
-    private String userName;
-    private int userScore;
+    private String chef;
+    private String dateAdded;
 
-    public Meal(String name, ArrayList<String> ingredients, double price, String location, String userName, int userScore){
-        this.name = name;
+    public Meal(String id, String title, String details, String ingredients, double price, String location, String chef, String dateAdded){
+        this.id = id;
+        this.title = title;
+        this.details = details;
         this.ingredients = ingredients;
         this.price = price;
         this.location = location;
-        this.userName = userName;
-        this.userScore = userScore;
+        this.chef = chef;
+        this.dateAdded = dateAdded;
     }
 
-    public String getName() {
-        return this.name;
+    public String getId() { return this.id; }
+
+    public String getTitle() {
+        return this.title;
     }
 
-    public ArrayList<String> getIngredients() {
+    public String getDetails() { return this.details; }
+
+    public String getIngredients() {
         return this.ingredients;
     }
 
@@ -39,19 +47,17 @@ public class Meal {
         return this.location;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public String getChef() {
+        return this.chef;
     }
 
-    public int getUserScore() {
-        return this.userScore;
+    public String getDateAdded() { return this.dateAdded; }
+
+    public void setTitle(String val){
+        this.title = val;
     }
 
-    public void setName(String val){
-        this.name = val;
-    }
-
-    public void setIngredients (ArrayList<String> val){
+    public void setIngredients (String val){
         this.ingredients = val;
     }
 

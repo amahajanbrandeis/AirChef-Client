@@ -20,13 +20,13 @@ public class MealsAdapter extends BaseAdapter {
     private ArrayList<Meal> list;
     Context context;
 
-    public MealsAdapter(Context context, ArrayList<Meal> l){
+    public MealsAdapter(Context context, ArrayList<Meal> list){
         super();
-        this.list = l;
+        this.list = list;
         this.context = context;
 
         ArrayList<String> a = new ArrayList<String>();
-        list.add(new Meal("Eggs", a, 8.05, "Yemen", "Frank Eggheart", 5/5));
+//        list.add(new Meal("Eggs", a, 8.05, "Yemen", "Frank Eggheart", 5/5));
     }
 
     public int getCount() {
@@ -55,15 +55,13 @@ public class MealsAdapter extends BaseAdapter {
 
         TextView mealName = (TextView) view.findViewById(R.id.entryMealNameTextView);
         TextView mealUsername = (TextView) view.findViewById(R.id.entryUserTextView);
-        TextView mealUserScore = (TextView) view.findViewById(R.id.entryUserScoreTextView);
         TextView mealTime = (TextView) view.findViewById(R.id.entryTimeTextView);
         TextView mealLocation = (TextView) view.findViewById(R.id.entryLocationTextView);
         TextView mealPrice = (TextView) view.findViewById(R.id.entryPriceTextView);
 
         Meal entry = getItem(position);
-        mealName.setText(entry.getName());
-        mealUsername.setText(entry.getUserName());
-        mealUserScore.setText(Integer.toString(entry.getUserScore()));
+        mealName.setText(entry.getTitle());
+        mealUsername.setText(entry.getChef());
         mealTime.setText("TODO");
         mealLocation.setText(entry.getLocation());
         mealPrice.setText(Double.toString(entry.getPrice()));

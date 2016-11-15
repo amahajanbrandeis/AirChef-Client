@@ -13,7 +13,7 @@ import android.provider.*;
 
 import org.json.JSONObject;
 
-public class EditProfile extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
     private int PICK_IMAGE_REQUEST = 321;
 
     @Override

@@ -10,7 +10,7 @@ import com.stormpath.sdk.StormpathConfiguration;
 import com.stormpath.sdk.ui.StormpathLoginActivity;
 import com.stormpath.sdk.ui.StormpathLoginConfig;
 
-public class Auth extends AppCompatActivity {
+public class AuthActivity extends AppCompatActivity {
 
     public static final int REQUEST_LOGIN = 422;
 
@@ -40,7 +40,7 @@ public class Auth extends AppCompatActivity {
     }
 
     private void navigateToHome() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, ExploreMealsActivity.class));
         finish();
     }
 

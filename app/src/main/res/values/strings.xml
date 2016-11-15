@@ -11,5 +11,12 @@
     <string name="profile_picture">Profile picture:</string>
     <string name="select_picture_button">Upload image</string>
     <string name="finish_button_text">Finish</string>
+    <string name="new_meal_button_text">New Meal</string>
+    <string name="new_meal_submit_text">Post</string>
+    <string name="dish_name_ex">What's it called?</string>
+    <string name="dish_ingredients_ex">What's it made of?</string>
+    <string name="dish_location_ex">Where to meet you?</string>
+    <string name="dish_price_ex">How much is it?</string>
+    <string name="dish_details_ex">Any other relevant info? How much food for the price? Dietary restriction warnings?</string>
 
 </resources>

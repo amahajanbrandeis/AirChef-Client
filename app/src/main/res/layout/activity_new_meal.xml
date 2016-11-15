@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.cs.brandeis.marius.homecooked.MainActivity">
+    tools:context=".ExploreMealsActivity">
 
     <TextView
         android:text="Location:"
@@ -42,41 +42,41 @@
         android:layout_alignBottom="@+id/mealNameTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:text="Dish Name" />
+        android:hint="@string/dish_name_ex" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Ingredients"
         android:ems="10"
         android:id="@+id/ingredientsEditText"
         android:layout_alignBaseline="@+id/ingredientsTextView"
         android:layout_alignBottom="@+id/ingredientsTextView"
         android:layout_alignLeft="@+id/dishNameEditText"
-        android:layout_alignStart="@+id/dishNameEditText" />
+        android:layout_alignStart="@+id/dishNameEditText"
+        android:hint="@string/dish_ingredients_ex" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Location"
         android:ems="10"
         android:id="@+id/locationEditText"
         android:layout_below="@+id/ingredientsEditText"
         android:layout_alignLeft="@+id/ingredientsEditText"
-        android:layout_alignStart="@+id/ingredientsEditText" />
+        android:layout_alignStart="@+id/ingredientsEditText"
+        android:hint="@string/dish_location_ex" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Price"
         android:ems="10"
         android:id="@+id/priceEditText"
         android:layout_below="@+id/locationEditText"
         android:layout_alignLeft="@+id/locationEditText"
-        android:layout_alignStart="@+id/locationEditText" />
+        android:layout_alignStart="@+id/locationEditText"
+        android:hint="@string/dish_price_ex" />
 
     <TextView
         android:text="Price:"
@@ -89,7 +89,7 @@
         android:layout_alignStart="@+id/locationTextView" />
 
     <TextView
-        android:text="Dish Name:"
+        android:text="Meal Name:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="58dp"
@@ -99,4 +99,32 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_meal_submit_text"
+        android:id="@+id/submitMealBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="95dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extra Details"
+        android:id="@+id/textView"
+        android:layout_marginBottom="75dp"
+        android:layout_alignBottom="@+id/editText"
+        android:layout_alignLeft="@+id/mealNameTextView"
+        android:layout_alignStart="@+id/mealNameTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:hint="@string/dish_details_ex"
+        android:layout_below="@+id/priceEditText"
+        android:layout_alignLeft="@+id/priceEditText"
+        android:layout_alignStart="@+id/priceEditText" />
 </RelativeLayout>

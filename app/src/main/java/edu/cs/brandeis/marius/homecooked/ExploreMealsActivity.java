@@ -44,7 +44,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
         // Save button functionality
         newMealBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(context, ViewMealActivity.class);
+                Intent intent = new Intent(context, NewMealActivity.class);
                 startActivity(intent);
             }
         });
@@ -62,9 +62,11 @@ public class ExploreMealsActivity extends AppCompatActivity {
     }
 
     public void onClickViewMeal(View view) {
-        Log.d("JSON for opened meal:", (String) view.getTag());
         Intent intent = new Intent(ExploreMealsActivity.this, ViewMealActivity.class);
         intent.putExtra("JSON", (String) view.getTag());
+
+        String extra = intent.getExtras().getString("JSON");
+        Log.d("extra: ", extra);
         startActivity(intent);
     }
 

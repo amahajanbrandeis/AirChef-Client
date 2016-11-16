@@ -66,7 +66,7 @@ public class MealsAdapter extends BaseAdapter {
         mealLocation.setText(entry.getLocation());
         mealPrice.setText(Double.toString(entry.getPrice()));
         view.setTag(entry.getJSON());
-
+        Log.d("entry.getJSON inadapter", entry.getJSON());
         return view;
     }
 

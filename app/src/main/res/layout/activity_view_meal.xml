@@ -8,16 +8,16 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ViewMealActivity"
-    android:id="@+id/viewMealChef">
+    android:id="@+id/RelativeLayout">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/viewMealTitle"
+        android:text="Chicken Parmesan"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Chicken Parmesan" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,8 +47,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_below="@+id/viewMealDateAdded"
-        android:layout_alignLeft="@+id/viewMealDateAdded"
-        android:layout_alignStart="@+id/viewMealDateAdded" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

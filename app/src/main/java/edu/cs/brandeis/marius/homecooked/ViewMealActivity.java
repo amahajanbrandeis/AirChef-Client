@@ -1,12 +1,12 @@
 package edu.cs.brandeis.marius.homecooked;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.json.JSONException;
 
 public class ViewMealActivity extends AppCompatActivity {
     Meal meal;
@@ -23,15 +23,13 @@ public class ViewMealActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_meal);
 
-        String JSONString = getIntent().getExtras().getString("JSON");
+        Intent thisIntent = getIntent();
+        Bundle extras = thisIntent.getExtras();
+        String JSONString = extras.getString("JSON");
 
-        try {
             meal = new Meal(JSONString);
             setupViews();
 
-        } catch (Exception e) {
-            // Display error view here
-        }
     }
 
     private void setupViews() {
@@ -49,5 +47,6 @@ public class ViewMealActivity extends AppCompatActivity {
         // viewMealImage =
         viewMealDetails.setText(meal.getDetails());
         viewMealPrice.setText("$" + meal.getPrice());
+        Log.d("App:", "views should be set");
     }
 }

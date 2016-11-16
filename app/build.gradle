@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "edu.cs.brandeis.marius.homecooked"
+        applicationId "edu.cs.brandeis.marius.airchef"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1

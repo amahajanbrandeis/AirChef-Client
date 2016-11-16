@@ -1,9 +1,7 @@
-package edu.cs.brandeis.marius.homecooked;
+package edu.cs.brandeis.marius.airchef;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 /**
  * Created by Anirudh on 11/13/2016.

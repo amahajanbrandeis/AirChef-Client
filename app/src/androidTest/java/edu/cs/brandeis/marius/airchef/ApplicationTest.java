@@ -1,4 +1,4 @@
-package edu.cs.brandeis.marius.homecooked;
+package edu.cs.brandeis.marius.airchef;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

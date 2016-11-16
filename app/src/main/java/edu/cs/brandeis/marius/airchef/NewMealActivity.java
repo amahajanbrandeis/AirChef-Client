@@ -1,7 +1,6 @@
-package edu.cs.brandeis.marius.homecooked;
+package edu.cs.brandeis.marius.airchef;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

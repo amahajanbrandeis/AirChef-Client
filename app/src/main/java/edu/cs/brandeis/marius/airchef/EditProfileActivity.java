@@ -1,4 +1,4 @@
-package edu.cs.brandeis.marius.homecooked;
+package edu.cs.brandeis.marius.airchef;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;

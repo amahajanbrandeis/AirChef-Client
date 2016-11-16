@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Homecooked</string>
+    <string name="app_name">AirChef</string>
     <string name="profile_location">Location:</string>
     <string name="profile_location_hint">Enter your dorm</string>
     <string name="profile_bio">Bio:</string>

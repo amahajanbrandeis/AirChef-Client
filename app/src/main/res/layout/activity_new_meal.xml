@@ -11,94 +11,13 @@
     tools:context=".ExploreMealsActivity">
 
     <TextView
-        android:text="Location:"
+        android:text="Meal Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:id="@+id/locationTextView"
-        android:layout_below="@+id/ingredientsTextView"
-        android:layout_alignLeft="@+id/ingredientsTextView"
-        android:layout_alignStart="@+id/ingredientsTextView" />
-
-    <TextView
-        android:text="Ingredients:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ingredientsTextView"
-        android:layout_below="@+id/dishNameEditText"
-        android:layout_alignRight="@+id/mealNameTextView"
-        android:layout_alignEnd="@+id/mealNameTextView"
-        android:layout_marginTop="21dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/dishNameEditText"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_alignBaseline="@+id/mealNameTextView"
-        android:layout_alignBottom="@+id/mealNameTextView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="@string/dish_name_ex" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/ingredientsEditText"
-        android:layout_alignBaseline="@+id/ingredientsTextView"
-        android:layout_alignBottom="@+id/ingredientsTextView"
-        android:layout_alignLeft="@+id/dishNameEditText"
-        android:layout_alignStart="@+id/dishNameEditText"
-        android:hint="@string/dish_ingredients_ex" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/locationEditText"
-        android:layout_below="@+id/ingredientsEditText"
-        android:layout_alignLeft="@+id/ingredientsEditText"
-        android:layout_alignStart="@+id/ingredientsEditText"
-        android:hint="@string/dish_location_ex" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/priceEditText"
-        android:layout_below="@+id/locationEditText"
-        android:layout_alignLeft="@+id/locationEditText"
-        android:layout_alignStart="@+id/locationEditText"
-        android:hint="@string/dish_price_ex" />
-
-    <TextView
-        android:text="Price:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/priceTextView"
-        android:layout_alignBaseline="@+id/priceEditText"
-        android:layout_alignBottom="@+id/priceEditText"
-        android:layout_alignLeft="@+id/locationTextView"
-        android:layout_alignStart="@+id/locationTextView" />
-
-    <TextView
-        android:text="Meal Name:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:id="@+id/mealNameTextView"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
+        android:layout_marginTop="50dp"
+        android:id="@+id/mealNameLabel"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -111,31 +30,67 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealNameText"
+        android:layout_below="@+id/mealNameLabel"
+        android:layout_centerHorizontal="true"
+        android:hint="What&apos;s it called?" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Extra Details"
-        android:id="@+id/textView"
-        android:layout_marginBottom="75dp"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_alignLeft="@+id/mealNameTextView"
-        android:layout_alignStart="@+id/mealNameTextView" />
+        android:text="Description"
+        android:id="@+id/mealDescriptionLabel"
+        android:layout_below="@+id/mealNameText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:hint="@string/dish_details_ex"
-        android:layout_below="@+id/priceEditText"
-        android:layout_alignLeft="@+id/priceEditText"
-        android:layout_alignStart="@+id/priceEditText" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/submitMealProgressBar"
-        android:layout_above="@+id/submitMealBtn"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/mealDescriptionText"
+        android:layout_below="@+id/mealDescriptionLabel"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible" />
+        android:hint="What are the ingredients? Any allergy warnings? Any other additional details go here as well." />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/mealLocationLabel"
+        android:layout_below="@+id/mealDescriptionText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mealLocationText"
+        android:layout_below="@+id/mealLocationLabel"
+        android:layout_centerHorizontal="true"
+        android:hint="Where to meet you?" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:id="@+id/mealPriceLabel"
+        android:layout_below="@+id/mealLocationText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/mealPriceText"
+        android:layout_below="@+id/mealPriceLabel"
+        android:layout_centerHorizontal="true"
+        android:hint="How much is it?" />
+
 </RelativeLayout>

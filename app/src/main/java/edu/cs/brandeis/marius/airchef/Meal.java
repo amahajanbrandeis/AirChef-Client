@@ -11,18 +11,16 @@ public class Meal {
     private String id;
     private String title;
     private String details;
-    private String ingredients;
-    private double price;
+    private String price;
     private String location;
     private String chef;
     private String dateAdded;
     private String JSON;
 
-    public Meal(String id, String title, String details, String ingredients, double price, String location, String chef, String dateAdded, String JSON){
+    public Meal(String id, String title, String details, String price, String location, String chef, String dateAdded, String JSON){
         this.id = id;
         this.title = title;
         this.details = details;
-        this.ingredients = ingredients;
         this.price = price;
         this.location = location;
         this.chef = chef;
@@ -36,9 +34,8 @@ public class Meal {
             this.id = JSONMeal.getString("_id");
             this.title = JSONMeal.getString("title");
             this.details = JSONMeal.getString("description");
-//            this.ingredients = ingredients;
-//            this.price = price;
-//            this.location = location;
+            this.price = JSONMeal.getString("price");
+            this.location = JSONMeal.getString("location");
             this.chef = JSONMeal.getString("chef");;
             this.dateAdded = JSONMeal.getString("dateAdded");;
             this.JSON = JSONMeal.toString();
@@ -52,9 +49,8 @@ public class Meal {
             this.id = JSONMeal.getString("_id");
             this.title = JSONMeal.getString("title");
             this.details = JSONMeal.getString("description");
-//            this.ingredients = ingredients;
-//            this.price = price;
-//            this.location = location;
+            this.price = JSONMeal.getString("price");
+            this.location = JSONMeal.getString("location");
             this.chef = JSONMeal.getString("chef");;
             this.dateAdded = JSONMeal.getString("dateAdded");;
             this.JSON = JSONMeal.toString();
@@ -71,11 +67,7 @@ public class Meal {
 
     public String getDetails() { return this.details; }
 
-    public String getIngredients() {
-        return this.ingredients;
-    }
-
-    public double getPrice(){
+    public String getPrice(){
         return this.price;
     }
 
@@ -93,10 +85,6 @@ public class Meal {
 
     public void setTitle(String val){
         this.title = val;
-    }
-
-    public void setIngredients (String val){
-        this.ingredients = val;
     }
 
     public void setPrice (double val){

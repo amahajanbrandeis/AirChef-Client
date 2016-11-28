@@ -33,6 +33,7 @@ public class Auth extends AppCompatActivity {
         Intent loginIntent = new Intent(this, StormpathLoginActivity.class);
 
         loginIntent.putExtras(new StormpathLoginConfig.Builder()
+                .autoLoginAfterRegister(true)
                 .setIcon(R.mipmap.ic_launcher)
                 .create());
 

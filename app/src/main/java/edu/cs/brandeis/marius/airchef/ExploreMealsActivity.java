@@ -40,6 +40,14 @@ public class ExploreMealsActivity extends AppCompatActivity {
             }
         });
 
+        final Button myProfileBtn = (Button) findViewById(R.id.myProfileBtn);
+        myProfileBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(context, myProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
 
         // Setup refresh listener which triggers new data loading

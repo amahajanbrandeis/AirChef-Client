@@ -20,7 +20,8 @@
         <activity android:name="com.stormpath.sdk.ui.StormpathLoginActivity" />
         <activity android:name=".ExploreMealsActivity" />
         <activity android:name=".NewMealActivity" />
-        <activity android:name=".ViewMealActivity"></activity>
+        <activity android:name=".ViewMealActivity" />
+        <activity android:name=".myProfileActivity"></activity>
     </application>
 
 </manifest>

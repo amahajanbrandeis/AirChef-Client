@@ -93,4 +93,14 @@
         android:layout_centerHorizontal="true"
         android:hint="How much is it?" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please fill out all of the fields"
+        android:id="@+id/errorText"
+        android:layout_above="@+id/submitMealBtn"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff0000"
+        android:visibility="invisible" />
+
 </RelativeLayout>

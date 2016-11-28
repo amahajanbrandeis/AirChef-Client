@@ -22,18 +22,12 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"><![CDATA[
 
-         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/mealsListView"
-            android:layout_below="@+id/mealsTitleTextView" />View" />
+         View" />
 
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    ]]></android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -53,6 +47,27 @@
         android:text="My Profile"
         android:id="@+id/myProfileBtn"
         android:layout_alignBottom="@+id/mealsTitleTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Search Meals"
+        android:ems="10"
+        android:layout_below="@+id/mealsTitleTextView"
+        android:id="@+id/searchMealsEditText"
+        android:layout_alignRight="@+id/mealsListView"
+        android:layout_alignEnd="@+id/mealsListView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+        android:id="@+id/mealsListView"
+        android:layout_below="@+id/searchMealsEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

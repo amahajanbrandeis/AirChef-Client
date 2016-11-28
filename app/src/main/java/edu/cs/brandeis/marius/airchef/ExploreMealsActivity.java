@@ -6,9 +6,12 @@ import android.os.AsyncTask;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ExploreMealsActivity extends AppCompatActivity {
 
@@ -45,6 +49,36 @@ public class ExploreMealsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, myProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        final EditText searchBar = (EditText) findViewById(R.id.searchMealsEditText);
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.equals("") && s != null){
+                    // filter list according to charsequence s
+                    s = s.toString();
+                    ArrayList<Meal> tempArr = new ArrayList<Meal>();
+                    for (int i = 0; i < mealsList.size(); i++){
+                        if (mealsList.get(i).getTitle().contains(s)){
+                            tempArr.add(mealsList.get(i));
+                        }
+                    }
+                    ListView mealListing = (ListView) findViewById(R.id.mealsListView);
+                    MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, tempArr);
+                    mealListing.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
 

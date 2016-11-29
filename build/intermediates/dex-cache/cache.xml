@@ -23,6 +23,13 @@
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_360e6d84f19d36adadf4e2597e06b1a693f21fe4/classes.dex" />
     </item>
     <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-cognitoidentityprovider/2.2.22/6ddcf148b81c8a388d17964d78cf3e26f0ae9bc/aws-android-sdk-cognitoidentityprovider-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="06ddcf148b81c8a388d17964d78cf3e26f0ae9bc">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-cognitoidentityprovider-2.2.22_c1fad9c93474fb6ba1f478f0b66f42deda78c567/classes.dex" />
+    </item>
+    <item
         jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.1.2/a1b4b8e4dc5f7bfa9186e79f9e267c1539a847b0/logging-interceptor-3.1.2.jar"
         jumboMode="true"
         revision="24.0.1"
@@ -35,6 +42,20 @@
         revision="24.0.1"
         sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.3.0_0875e485d6bd5947bea606d78e98d9096c7d7b92/classes.dex" />
+    </item>
+    <item
+        jar="/usr/local/android-studio/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.2.4_8cd7e65f7612a53d9b4b375eec76c9b6857fc72c/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-s3/2.2.22/40fe82092e0ae3ca549b132a1e7e876807525176/aws-android-sdk-s3-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="40fe82092e0ae3ca549b132a1e7e876807525176">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-s3-2.2.22_db7f800cd13f03f754c117702b8b6116eb0f7dad/classes.dex" />
     </item>
     <item
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
@@ -86,6 +107,13 @@
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_c8189a466f54609330d383ff80b844846a752343/classes.dex" />
     </item>
     <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-core/2.2.22/c6789de00db9d1f93faec881fa0c1f5960fb8a15/aws-android-sdk-core-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c6789de00db9d1f93faec881fa0c1f5960fb8a15">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-core-2.2.22_4b405c6fdf3ad4c72b9403818b661227eecef7ae/classes.dex" />
+    </item>
+    <item
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.3.0/jars/classes.jar"
         jumboMode="true"
         revision="24.0.1"
@@ -117,15 +145,22 @@
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="7b59198ae82edb0ea6bbaf9207a725ca2eda2138">
+        sha1="3419eca65524a5733d4e6377ea918a1434d69e2b">
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c1c518c467f3ce612d889f032225a04b6da7da7b/classes.dex" />
     </item>
     <item
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="173c59a3823de41086af697823767bfe5f3d0b78">
+        sha1="6a774bd8be4d61f1a847153bbf4315022728d51a">
         <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_43d08a93bd1e669d25b10b74cc7e6290b4b81750/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-cognito/2.2.22/9bef9beddb1b7579713905702d8219d516bd3954/aws-android-sdk-cognito-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="9bef9beddb1b7579713905702d8219d516bd3954">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-cognito-2.2.22_c0f1eddc26b9a2952d41ae163a7a44578c5faf41/classes.dex" />
     </item>
     <item
         jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"

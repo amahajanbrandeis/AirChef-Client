@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,6 +40,7 @@ public class NewMealActivity extends AppCompatActivity {
     EditText mealDescriptionText;
     EditText mealLocationText;
     EditText mealPriceText;
+    TextView errorText;
     Button submitMealBtn;
 
     @Override
@@ -50,6 +52,7 @@ public class NewMealActivity extends AppCompatActivity {
         mealDescriptionText = (EditText) findViewById(R.id.mealDescriptionText);
         mealLocationText = (EditText) findViewById(R.id.mealLocationText);
         mealPriceText = (EditText) findViewById(R.id.mealPriceText);
+        errorText = (TextView) findViewById(R.id.errorText);
         submitMealBtn = (Button) findViewById(R.id.submitMealBtn);
 
         final Context context = this;
@@ -59,7 +62,7 @@ public class NewMealActivity extends AppCompatActivity {
                 if (formsFilled()) {
                     postMeal();
                 } else {
-
+                    errorText.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -67,7 +70,10 @@ public class NewMealActivity extends AppCompatActivity {
 
     // Checks if forms are all filled
     private boolean formsFilled() {
-        return true;
+        return !((mealNameText.getText().toString().trim().length() == 0) ||
+                (mealDescriptionText.getText().toString().trim().length() == 0) ||
+                (mealLocationText.getText().toString().trim().length() == 0) ||
+                (mealPriceText.getText().toString().trim().length() == 0));
     }
 
     private void postMeal() {
@@ -96,10 +102,10 @@ public class NewMealActivity extends AppCompatActivity {
             {
                 Map<String, String> params = new HashMap<String, String>();
 
-                params.put("title", mealNameText.getText().toString());
-                params.put("description", mealDescriptionText.getText().toString());
-                params.put("location", mealLocationText.getText().toString());
-                params.put("price", mealPriceText.getText().toString());
+                params.put("title", mealNameText.getText().toString().trim());
+                params.put("description", mealDescriptionText.getText().toString().trim());
+                params.put("location", mealLocationText.getText().toString().trim());
+                params.put("price", mealPriceText.getText().toString().trim());
                 params.put("chef", "testChef");
 
                 return params;
@@ -115,57 +121,4 @@ public class NewMealActivity extends AppCompatActivity {
             queue.cancelAll(REQUEST_TAG);
         }
     }
-
-//    public class NewMealTask extends AsyncTask<Void, Void, String> {
-//
-//
-//        private Exception exception;
-//
-//        protected void onPreExecute() {
-//            progressBar.setVisibility(View.VISIBLE);
-//        }
-//
-//        protected String doInBackground(Void... urls) {
-////            String email = emailText.getText().toString();
-//            // Do some validation here
-//            String postResponse;
-//            StringRequest postRequest = new StringRequest(Request.Method.POST, API_URL,
-//                    new Response.Listener<String>()
-//                    {
-//                        @Override
-//                        public void onResponse(String response) {
-//                            // response
-//                            postResponse = response;
-//                        }
-//                    },
-//                    new Response.ErrorListener()
-//                    {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            // error
-//                            postResponse = error.toString();
-//                        }
-//                    }
-//            ) {
-//                @Override
-//                protected Map<String, String> getParams()
-//                {
-//                    Map<String, String> params = new HashMap<String, String>();
-//                    params.put("name", "Alif");
-//                    params.put("domain", "http://itsalif.info");
-//
-//                    return params;
-//                }
-//            };
-//            queue.add(postRequest);
-//        }
-//
-//        protected void onPostExecute(String response) {
-//            if(response == null) {
-//                response = "THERE WAS AN ERROR";
-//            }
-//            progressBar.setVisibility(View.GONE);
-//            Log.d("Response from API:", response);
-//        }
-//    }
 }

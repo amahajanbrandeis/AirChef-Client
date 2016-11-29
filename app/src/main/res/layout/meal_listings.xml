@@ -13,6 +13,17 @@
         android:layout_centerHorizontal="true" />
 
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/mealsTitleTextView"
+        android:id="@+id/searchMealsEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Search Meals" />
+
     <android.support.v4.widget.SwipeRefreshLayout
 
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,12 +33,16 @@
         android:layout_width="match_parent"
 
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"><![CDATA[
+        android:layout_marginTop="100dp">
 
-         View" />
-
-
-    ]]></android.support.v4.widget.SwipeRefreshLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mealsListView"
+            android:layout_below="@+id/searchMealsEditText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -50,24 +65,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Search Meals"
-        android:ems="10"
-        android:layout_below="@+id/mealsTitleTextView"
-        android:id="@+id/searchMealsEditText"
-        android:layout_alignRight="@+id/mealsListView"
-        android:layout_alignEnd="@+id/mealsListView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <ListView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-        android:id="@+id/mealsListView"
-        android:layout_below="@+id/searchMealsEditText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>

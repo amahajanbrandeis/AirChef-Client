@@ -63,10 +63,10 @@ public class ExploreMealsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.equals("") && s != null){
                     // filter list according to charsequence s
-                    s = s.toString();
+                    //s = s.toString();
                     ArrayList<Meal> tempArr = new ArrayList<Meal>();
                     for (int i = 0; i < mealsList.size(); i++){
-                        if (mealsList.get(i).getTitle().contains(s)){
+                        if (mealsList.get(i).getTitle().toLowerCase().contains(s.toString().toLowerCase())){
                             tempArr.add(mealsList.get(i));
                         }
                     }

@@ -2,11 +2,17 @@ package edu.cs.brandeis.marius.airchef;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.stormpath.sdk.Stormpath;
+import com.stormpath.sdk.StormpathCallback;
 import com.stormpath.sdk.StormpathConfiguration;
+import com.stormpath.sdk.models.StormpathError;
+import com.stormpath.sdk.models.UserProfile;
 import com.stormpath.sdk.ui.StormpathLoginActivity;
 import com.stormpath.sdk.ui.StormpathLoginConfig;
 
@@ -42,6 +48,24 @@ public class Auth extends AppCompatActivity {
 
     private void navigateToHome() {
         startActivity(new Intent(this, ExploreMealsActivity.class));
+        // !!! Put SharedPreference code here
+        Stormpath.getUserProfile(new StormpathCallback<UserProfile>() {
+            @Override
+            public void onSuccess(UserProfile userProfile) {
+                Log.d("app", userProfile.getEmail());
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Auth.this);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("email",userProfile.getEmail());
+                editor.putString("name",userProfile.getFullName());
+                editor.apply();
+            }
+
+            @Override
+            public void onFailure(StormpathError error) {
+            }
+        });
+
+
         finish();
     }
 

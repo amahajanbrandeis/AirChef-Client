@@ -2,7 +2,9 @@ package edu.cs.brandeis.marius.airchef;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +37,8 @@ public class NewMealActivity extends AppCompatActivity {
 
     static final String API_URL = "http://airchef-server.herokuapp.com/api/meal/";
     static final String REQUEST_TAG = "NewMealActivity";
+    String userEmail;
+    String userName;
     RequestQueue queue;
     EditText mealNameText;
     EditText mealDescriptionText;
@@ -54,6 +58,10 @@ public class NewMealActivity extends AppCompatActivity {
         mealPriceText = (EditText) findViewById(R.id.mealPriceText);
         errorText = (TextView) findViewById(R.id.errorText);
         submitMealBtn = (Button) findViewById(R.id.submitMealBtn);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        userEmail = preferences.getString("email", "");
+        userName = preferences.getString("name", "");
 
         final Context context = this;
         queue = Volley.newRequestQueue(this);
@@ -106,7 +114,7 @@ public class NewMealActivity extends AppCompatActivity {
                 params.put("description", mealDescriptionText.getText().toString().trim());
                 params.put("location", mealLocationText.getText().toString().trim());
                 params.put("price", mealPriceText.getText().toString().trim());
-                params.put("chef", "testChef");
+                params.put("chef", userName);
 
                 return params;
             }

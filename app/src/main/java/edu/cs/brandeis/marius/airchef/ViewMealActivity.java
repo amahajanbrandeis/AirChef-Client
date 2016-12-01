@@ -84,8 +84,10 @@ public class ViewMealActivity extends AppCompatActivity {
         viewMealDetails.setText(meal.getDetails());
         viewMealPrice.setText("$" + meal.getPrice());
 
-        // If current user is the chef, button ends the meal listing
+        // If current user is the chef, we display the requests for this meal
         if (userName.equals(meal.getChef())) {
+            fetchMealRequests();
+
             viewMealRequestBtn.setText("End Listing");
             viewMealRequestBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -112,6 +114,42 @@ public class ViewMealActivity extends AppCompatActivity {
         Log.d("App:", "views should be set");
     }
 
+    private void fetchMealRequests() {
+        StringRequest getRequest = new StringRequest(Request.Method.GET, API_URL,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // handle response
+                        Log.d("app:", response);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // handle error
+                        Log.d("app:", "Error: " + error.toString());
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<String, String>();
+
+                params.put("title", mealNameText.getText().toString().trim());
+                params.put("description", mealDescriptionText.getText().toString().trim());
+                params.put("location", mealLocationText.getText().toString().trim());
+                params.put("price", mealPriceText.getText().toString().trim());
+                params.put("chef", userName);
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
+    }
+
     private void deleteMeal() {
 
     }
@@ -123,7 +161,8 @@ public class ViewMealActivity extends AppCompatActivity {
         try {
             JSONObject JSONMeal = new JSONObject(JSONString);
             JSONRequest.put("meal", JSONMeal);
-            JSONRequest.put("buyer", email);
+            JSONRequest.put("buyerEmail", email);
+            JSONRequest.put("buyerName", userName);
         } catch (Exception e) {}
 
         JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST,

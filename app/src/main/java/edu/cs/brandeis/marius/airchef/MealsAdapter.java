@@ -25,8 +25,6 @@ public class MealsAdapter extends BaseAdapter {
         super();
         this.list = list;
         this.context = context;
-
-//        list.add(new Meal("Eggs", a, 8.05, "Yemen", "Frank Eggheart", 5/5));
     }
 
     public int getCount() {
@@ -41,9 +39,7 @@ public class MealsAdapter extends BaseAdapter {
         return this.list.get(index);
     }
 
-    public long getItemId(int index){
-        return index; // why?
-    }
+    public long getItemId(int index){ return index; }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {

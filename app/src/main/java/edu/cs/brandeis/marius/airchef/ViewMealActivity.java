@@ -148,7 +148,7 @@ public class ViewMealActivity extends AppCompatActivity {
             }
         };
         queue.add(postRequest);
-    }
+    } 
 
     private void deleteMeal() {
 

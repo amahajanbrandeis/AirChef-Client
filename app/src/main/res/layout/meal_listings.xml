@@ -48,22 +48,30 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/new_meal_button_text"
+        android:background="@drawable/round_button"
+        android:text="+"
         android:id="@+id/newMealBtn"
+        android:layout_marginTop="15dp"
+        android:fontFamily="monospace"
+        android:textSize="36sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="15dp" />
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="0dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Profile"
+        android:text="Profile"
         android:id="@+id/myProfileBtn"
-        android:layout_alignBottom="@+id/mealsTitleTextView"
+        android:layout_above="@+id/searchMealsEditText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
 
 
 </RelativeLayout>

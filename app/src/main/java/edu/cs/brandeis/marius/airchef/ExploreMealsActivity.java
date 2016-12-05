@@ -10,16 +10,23 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FilterInputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class ExploreMealsActivity extends AppCompatActivity {
@@ -53,6 +60,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
         });
 
         final EditText searchBar = (EditText) findViewById(R.id.searchMealsEditText);
+        searchBar.setText("");
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -77,6 +85,41 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        final Spinner filterSpinner = (Spinner) findViewById(R.id.filterSpinner);
+        String[] filters = new String[] {"A-Z", "Price: Low to High"};
+        ArrayAdapter<String> filterAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, filters);
+        filterSpinner.setAdapter(filterAdapter);
+        filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String filter =  filterSpinner.getSelectedItem().toString();
+                if (filter.equals("A-Z")){
+                    Log.d("test", "a-zzzzz");
+                    Collections.sort(mealsList, new Comparator<Meal>() {
+                        @Override
+                        public int compare(Meal o1, Meal o2) {
+                            return o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
+                        }
+                    });
+                } else if (filter.equals("Price: Low to High")){
+                    Log.d("test", "l-h");
+                    /*Collections.sort(mealsList, new Comparator<Meal>() {
+                        @Override
+                        public int compare(Meal o1, Meal o2) {
+                            if (Double.parseDouble(o1.getPrice()) > Double.parseDouble(o2.getPrice())) return 1;
+                            else if ((Double.parseDouble(o1.getPrice()) < Double.parseDouble(o2.getPrice()))) return -1;
+                            else return 0;
+                        }
+                    });*/
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });

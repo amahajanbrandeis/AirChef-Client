@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,13 +26,19 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ViewMealActivity extends AppCompatActivity {
-    static final String API_REQUEST_URL = "http://airchef-server.herokuapp.com/api/mealrequest/";
+    static final String API_REQUEST_URL = "http://airchef-server.herokuapp.com/api/mealrequest";
     static final String REQUEST_TAG = "NewMealActivity";
     RequestQueue queue;
 
@@ -45,6 +53,9 @@ public class ViewMealActivity extends AppCompatActivity {
     ImageView viewMealImage;
     TextView viewMealDetails;
     TextView viewMealPrice;
+    TextView requestsLabel;
+    SwipeRefreshLayout mealRequestsSwipeContainer;
+    ArrayList<MealRequest> mealRequestsList = new ArrayList<MealRequest>();
     Button viewMealRequestBtn;
 
     @Override
@@ -80,12 +91,31 @@ public class ViewMealActivity extends AppCompatActivity {
 
         viewMealTitle.setText(meal.getTitle());
         viewMealChef.setText("Cooked by " + meal.getChef());
-        viewMealDateAdded.setText("Added on " + meal.getDateAdded());
+        try {
+            String dateString = meal.getDateAdded();
+            Date dateObj = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(dateString.replaceAll("Z$", "+0000"));
+            viewMealDateAdded.setText("Added on " + (new SimpleDateFormat("MMM dd hh:mm a")).format(dateObj));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         viewMealDetails.setText(meal.getDetails());
         viewMealPrice.setText("$" + meal.getPrice());
 
         // If current user is the chef, we display the requests for this meal
         if (userName.equals(meal.getChef())) {
+            requestsLabel = (TextView) findViewById(R.id.requestsLabel);
+            requestsLabel.setVisibility(View.VISIBLE);
+            mealRequestsSwipeContainer = (SwipeRefreshLayout) findViewById(R.id.mealRequestsSwipeContainer);
+
+            // Setup refresh listener which triggers new data loading
+            mealRequestsSwipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+                @Override
+                public void onRefresh() {
+                    fetchMealRequests();
+                }
+            });
+
             fetchMealRequests();
 
             viewMealRequestBtn.setText("End Listing");
@@ -100,7 +130,7 @@ public class ViewMealActivity extends AppCompatActivity {
             if (requested) {
                 viewMealRequestBtn.setVisibility(View.INVISIBLE);
 
-            // ,,, or has not, so allow them to request
+                // ,,, or has not, so allow them to request
             } else {
                 viewMealRequestBtn.setText("Request Meal");
                 viewMealRequestBtn.setOnClickListener(new View.OnClickListener() {
@@ -115,39 +145,62 @@ public class ViewMealActivity extends AppCompatActivity {
     }
 
     private void fetchMealRequests() {
-        StringRequest getRequest = new StringRequest(Request.Method.GET, API_URL,
-                new Response.Listener<String>()
+        String fetchMealRequestsURL = API_REQUEST_URL + "?mealid=" + meal.getId() + "&purchased=false";
+        Log.d("this meal id:", fetchMealRequestsURL);
+
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, fetchMealRequestsURL, null,
+                new Response.Listener<JSONObject>()
                 {
                     @Override
-                    public void onResponse(String response) {
-                        // handle response
-                        Log.d("app:", response);
+                    public void onResponse(JSONObject response) {
+                        // display response
+                        String jsonStr = response.toString();
+                        Log.d("Response", jsonStr);
+
+                        try {
+                            JSONObject jsonObj = new JSONObject(jsonStr);
+                            JSONArray mealRequests = jsonObj.getJSONArray("mealRequests");
+
+                            mealRequestsList.clear();
+
+                            // looping through all meal requests
+                            for (int i = 0; i < mealRequests.length(); i++) {
+                                JSONObject JSONMealRequest = mealRequests.getJSONObject(i);
+                                MealRequest mealRequest = new MealRequest(JSONMealRequest);
+                                mealRequestsList.add(mealRequest);
+                            }
+
+                            // Stop refresh graphic
+                            mealRequestsSwipeContainer.setRefreshing(false);
+
+                            // Set adapter
+                            ListView mealRequestListing = (ListView) findViewById(R.id.mealRequestsListView);
+                            MealRequestsAdapter adapter = new MealRequestsAdapter(ViewMealActivity.this, mealRequestsList);
+                            mealRequestListing.setAdapter(adapter);
+                        }  catch (final Exception e) {
+                            Log.d("Client", "Json parsing error: " + e.getMessage());
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Json parsing error: " + e.getMessage(),
+                                            Toast.LENGTH_LONG)
+                                            .show();
+                                }
+                            });
+                        }
+
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // handle error
-                        Log.d("app:", "Error: " + error.toString());
+                        Log.d("Error.Response", error.toString());
                     }
                 }
-        ) {
-            @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String> params = new HashMap<String, String>();
-
-                params.put("title", mealNameText.getText().toString().trim());
-                params.put("description", mealDescriptionText.getText().toString().trim());
-                params.put("location", mealLocationText.getText().toString().trim());
-                params.put("price", mealPriceText.getText().toString().trim());
-                params.put("chef", userName);
-
-                return params;
-            }
-        };
-        queue.add(postRequest);
+        ) ;
+        queue.add(getRequest);
     }
 
     private void deleteMeal() {

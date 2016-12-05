@@ -32,7 +32,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal_listings);
-        new GetContacts().execute();
+        new GetMeals().execute();
 
         final Button newMealBtn = (Button) findViewById(R.id.newMealBtn);
         final Context context = this;
@@ -88,7 +88,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
             @Override
             public void onRefresh() {
-                new GetContacts().execute();
+                new GetMeals().execute();
             }
         });
     }
@@ -102,7 +102,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+    private class GetMeals extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... arg0) {
@@ -124,16 +124,9 @@ public class ExploreMealsActivity extends AppCompatActivity {
                     for (int i = 0; i < meals.length(); i++) {
                         JSONObject JSONMeal = meals.getJSONObject(i);
                         Meal meal = new Meal(JSONMeal);
-//                        String id = mealJSON.getString("_id");
-//                        String title = mealJSON.getString("title");
-//                        String details = mealJSON.getString("description");
-//                        String chef = mealJSON.getString("chef");
-//                        String dateAdded = mealJSON.getString("dateAdded");
-
-//                        Meal meal = new Meal(id, title, details, "ingredients", 3.00, "mods", chef, dateAdded, jsonStr);
-
                         mealsList.add(meal);
                     }
+
                 } catch (final JSONException e) {
                     Log.d("Client", "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {

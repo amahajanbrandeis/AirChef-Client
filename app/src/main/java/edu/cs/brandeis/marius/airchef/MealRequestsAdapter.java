@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MealRequestsAdapter extends BaseAdapter {
     private ArrayList<MealRequest> list;
@@ -47,7 +49,15 @@ public class MealRequestsAdapter extends BaseAdapter {
 
         MealRequest entry = getItem(position);
         buyerName.setText(entry.getBuyerName());
-        date.setText(entry.getDateAdded());
+
+
+        try {
+            String dateString = entry.getDateAdded();
+            Date dateObj = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(dateString.replaceAll("Z$", "+0000"));
+            date.setText((new SimpleDateFormat("MMM dd hh:mm a")).format(dateObj));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         return view;
     }

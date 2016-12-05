@@ -15,10 +15,42 @@
         android:layout_height="50px" />
 
     <TextView
-        android:id="@+id/location_label"
+        android:id="@+id/first_label"
         android:layout_width="110px"
         android:layout_height="80px"
         android:layout_below="@id/buffer"
+        android:gravity="right"
+        android:text="@string/firstname" />
+
+    <EditText
+        android:id="@+id/first_field"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:layout_toRightOf="@id/first_label"
+        android:layout_below="@id/buffer"
+        android:hint=""/>
+
+    <TextView
+        android:id="@+id/last_label"
+        android:layout_width="110px"
+        android:layout_height="80px"
+        android:layout_below="@id/first_field"
+        android:gravity="right"
+        android:text="@string/lastname" />
+
+    <EditText
+        android:id="@+id/last_field"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:layout_toRightOf="@id/last_label"
+        android:layout_below="@id/first_field"
+        android:hint=""/>
+
+    <TextView
+        android:id="@+id/location_label"
+        android:layout_width="110px"
+        android:layout_height="80px"
+        android:layout_below="@id/last_label"
         android:gravity="right"
         android:text="@string/profile_location" />
 
@@ -27,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="80px"
         android:layout_toRightOf="@id/location_label"
-        android:layout_below="@id/buffer"
+        android:layout_below="@id/last_field"
         android:hint="@string/profile_location_hint"/>
 
     <TextView
@@ -111,5 +143,11 @@
         android:layout_height="80px"
         android:layout_below="@id/picture_label"
         android:text="@string/finish_button_text" />
+
+    <TextView
+        android:layout_below="@id/finish_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/requiredFields"/>
 
 </RelativeLayout>

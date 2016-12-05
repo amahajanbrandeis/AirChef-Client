@@ -11,6 +11,9 @@
     <string name="profile_picture">Profile picture:</string>
     <string name="select_picture_button">Upload image</string>
     <string name="finish_button_text">Finish</string>
+    <string name="firstname">*First name:</string>
+    <string name="lastname">*Last name:</string>
+    <string name="requiredFields">* Indicates a required field</string>
     <string name="new_meal_button_text">New Meal</string>
     <string name="new_meal_submit_text">Post Meal</string>
     <string name="dish_name_ex">What\'s it called?</string>

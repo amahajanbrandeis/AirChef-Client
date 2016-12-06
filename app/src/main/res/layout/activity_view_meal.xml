@@ -17,7 +17,8 @@
         android:id="@+id/viewMealTitle"
         android:text="Chicken Parmesan"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,7 +57,9 @@
         android:text="$5.00"
         android:id="@+id/viewMealPrice"
         android:layout_above="@+id/viewMealRequestBtn"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/md_green_700"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -19,19 +20,35 @@ import com.stormpath.sdk.models.StormpathError;
 import com.stormpath.sdk.models.UserProfile;
 import com.stormpath.sdk.ui.StormpathLoginActivity;
 
+import org.w3c.dom.Text;
+
 public class myProfileActivity extends AppCompatActivity {
+    String userEmail;
+    String userName;
+    TextView profileName;
+    TextView profileEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String email = preferences.getString("email", "");
-        if(!email.equalsIgnoreCase(""))
-        {
-            Log.d("app", email);
-        }
+        userEmail = preferences.getString("email", "");
+        userName = preferences.getString("name", "");
 
+        setupViews();
+        setupDrawer();
+    }
+
+    private void setupViews() {
+        profileName = (TextView) findViewById(R.id.profileName);
+        profileEmail = (TextView) findViewById(R.id.profileEmail);
+
+        profileName.setText(userName);
+        profileEmail.setText(userEmail);
+    }
+
+    private void setupDrawer() {
         new DrawerBuilder()
                 .withActivity(this)
                 .addDrawerItems(

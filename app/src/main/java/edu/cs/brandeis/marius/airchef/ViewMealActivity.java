@@ -139,14 +139,8 @@ public class ViewMealActivity extends AppCompatActivity {
         viewMealRequestBtn = (Button) findViewById(R.id.viewMealRequestBtn);
 
         viewMealTitle.setText(meal.getTitle());
-        viewMealChef.setText("Cooked by " + meal.getChef());
-        try {
-            String dateString = meal.getDateAdded();
-            Date dateObj = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(dateString.replaceAll("Z$", "+0000"));
-            viewMealDateAdded.setText("Added on " + (new SimpleDateFormat("MMM dd hh:mm a")).format(dateObj));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        viewMealChef.setText("Cooked by " + meal.getChef() + " at " + meal.getLocation());
+        viewMealDateAdded.setText("Added on " + meal.getDateAdded());
         viewMealDetails.setText(meal.getDetails());
         viewMealPrice.setText("$" + meal.getPrice());
 

@@ -3,6 +3,9 @@ package edu.cs.brandeis.marius.airchef;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by Anirudh on 11/13/2016.
  */
@@ -36,8 +39,14 @@ public class Meal {
             this.details = JSONMeal.getString("description");
             this.price = JSONMeal.getString("price");
             this.location = JSONMeal.getString("location");
-            this.chef = JSONMeal.getString("chef");;
-            this.dateAdded = JSONMeal.getString("dateAdded");;
+            this.chef = JSONMeal.getString("chef");
+            try {
+                String dateString = JSONMeal.getString("dateAdded");
+                Date dateObj = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(dateString.replaceAll("Z$", "+0000"));
+                this.dateAdded = (new SimpleDateFormat("MMM dd hh:mm a")).format(dateObj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             this.JSON = JSONMeal.toString();
         } catch (final JSONException e) {
 
@@ -51,8 +60,14 @@ public class Meal {
             this.details = JSONMeal.getString("description");
             this.price = JSONMeal.getString("price");
             this.location = JSONMeal.getString("location");
-            this.chef = JSONMeal.getString("chef");;
-            this.dateAdded = JSONMeal.getString("dateAdded");;
+            this.chef = JSONMeal.getString("chef");
+            try {
+                String dateString = JSONMeal.getString("dateAdded");
+                Date dateObj = (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")).parse(dateString.replaceAll("Z$", "+0000"));
+                this.dateAdded = (new SimpleDateFormat("MMM dd hh:mm a")).format(dateObj);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             this.JSON = JSONMeal.toString();
         } catch (final JSONException e) {
 

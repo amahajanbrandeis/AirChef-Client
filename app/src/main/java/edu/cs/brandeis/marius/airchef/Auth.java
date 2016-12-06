@@ -55,6 +55,7 @@ public class Auth extends AppCompatActivity {
                 Log.d("app", userProfile.getEmail());
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Auth.this);
                 SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
                 editor.putString("email",userProfile.getEmail());
                 editor.putString("name",userProfile.getFullName());
                 editor.apply();

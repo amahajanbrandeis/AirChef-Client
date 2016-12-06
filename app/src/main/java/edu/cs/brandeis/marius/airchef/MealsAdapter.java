@@ -58,7 +58,7 @@ public class MealsAdapter extends BaseAdapter {
         Meal entry = getItem(position);
         mealName.setText(entry.getTitle());
         mealUsername.setText(entry.getChef());
-        mealTime.setText("TODO");
+        mealTime.setText(entry.getDateAdded());
         mealLocation.setText(entry.getLocation());
         mealPrice.setText(entry.getPrice());
         view.setTag(entry.getJSON());

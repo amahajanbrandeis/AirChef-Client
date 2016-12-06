@@ -10,34 +10,48 @@
     tools:context="edu.cs.brandeis.marius.airchef.myProfileActivity">
 
     <ImageView
-        android:layout_width="300px"
-        android:layout_height="300px"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
         android:id="@+id/profilePictureDisplay"
+        android:src="@mipmap/temp_meal_img"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/nameDisplay"
+        android:text="Firstname Lastname"
+        android:id="@+id/profileName"
         android:layout_below="@+id/profilePictureDisplay"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="35dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/bioDisplay"
-        android:layout_alignRight="@+id/profilePictureDisplay"
-        android:layout_alignEnd="@+id/profilePictureDisplay"
-        android:layout_alignLeft="@+id/profilePictureDisplay"
-        android:layout_alignStart="@+id/profilePictureDisplay"
-        android:layout_below="@+id/nameDisplay"
-        android:lines="2" />
+        android:text="email@email.com"
+        android:id="@+id/profileEmail"
+        android:layout_below="@+id/profileName"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="And more to come..."
+        android:id="@+id/textView"
+        android:layout_below="@+id/profileEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:textSize="25dp" /><![CDATA[
+
+
+
+    TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/locationMarker"
@@ -46,16 +60,9 @@
         android:layout_alignParentStart="true"
         android:text="@string/profile_location"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/userLocation"
-        android:layout_below="@+id/bioDisplay"
-        android:layout_toRightOf="@+id/locationMarker"
-        android:layout_toEndOf="@+id/locationMarker" />
 
-    <TextView
+
+    TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/profile_eat"
@@ -64,34 +71,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/userEats"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/userLocation"
-        android:layout_toEndOf="@+id/userLocation" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile_cook"
-        android:id="@+id/cookMarker"
-        android:layout_marginTop="33dp"
-        android:layout_below="@+id/eatMarker"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/userCooks"
-        android:layout_toRightOf="@id/cookMarker"
-        android:layout_alignLeft="@+id/userEats"
-        android:layout_alignStart="@+id/userEats"
-        android:layout_alignBottom="@+id/cookMarker"
-        android:layout_alignTop="@+id/cookMarker" />
 
+]]>
 </RelativeLayout>

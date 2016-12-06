@@ -29,10 +29,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="✓"
-        android:id="@+id/button"
+        android:id="@+id/acceptRequestBtn"
         android:layout_alignTop="@+id/requestEntryBuyerName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
-        android:onClick="onClickAcceptRequest" />
+        android:layout_marginRight="20dp" />
 </RelativeLayout>

@@ -34,6 +34,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
     private SwipeRefreshLayout swipeContainer;
     ArrayList<Meal> mealsList = new ArrayList<Meal>();
     static final String API_URL = "http://airchef-server.herokuapp.com/api/meal/";
+    MealsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,32 +91,65 @@ public class ExploreMealsActivity extends AppCompatActivity {
         });
 
         final Spinner filterSpinner = (Spinner) findViewById(R.id.filterSpinner);
-        String[] filters = new String[] {"A-Z", "Price: Low to High"};
+        String[] filters = new String[] {"A-Z", "Z-A", "Price: Low to High", "Price: High to Low"};
         ArrayAdapter<String> filterAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, filters);
         filterSpinner.setAdapter(filterAdapter);
         filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String filter =  filterSpinner.getSelectedItem().toString();
-                if (filter.equals("A-Z")){
-                    Log.d("test", "a-zzzzz");
-                    Collections.sort(mealsList, new Comparator<Meal>() {
-                        @Override
-                        public int compare(Meal o1, Meal o2) {
-                            return o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
-                        }
-                    });
-                } else if (filter.equals("Price: Low to High")){
-                    Log.d("test", "l-h");
-                    /*Collections.sort(mealsList, new Comparator<Meal>() {
-                        @Override
-                        public int compare(Meal o1, Meal o2) {
-                            if (Double.parseDouble(o1.getPrice()) > Double.parseDouble(o2.getPrice())) return 1;
-                            else if ((Double.parseDouble(o1.getPrice()) < Double.parseDouble(o2.getPrice()))) return -1;
-                            else return 0;
-                        }
-                    });*/
+
+                switch(filter){
+                    case("A-Z"): {
+                        Log.d("test", "a-zzzzz");
+                        Collections.sort(mealsList, new Comparator<Meal>() {
+                            @Override
+                            public int compare(Meal o1, Meal o2) {
+                                return o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
+                            }
+                        });
+                        break;
+                    }
+                    case("Z-A"): {
+                        Log.d("test", "Z-a");
+                        Collections.sort(mealsList, new Comparator<Meal>() {
+                            @Override
+                            public int compare(Meal o1, Meal o2) {
+                                int val = o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
+                                if (val < 0) return 1;
+                                else if (val > 0) return -1;
+                                else return 0;
+                            }
+                        });
+                        break;
+                    }
+                    case("Price: Low to High"): {
+                        Log.d("test", "l-h");
+                        Collections.sort(mealsList, new Comparator<Meal>() {
+                            @Override
+                            public int compare(Meal o1, Meal o2) {
+                                if (Float.parseFloat(o1.getPrice()) > Float.parseFloat(o2.getPrice())) return 1;
+                                else if ((Float.parseFloat(o1.getPrice()) < Float.parseFloat(o2.getPrice()))) return -1;
+                                else return 0;
+                            }
+                        });
+                        break;
+                    }
+                    case("Price: High to Low"): {
+                        Log.d("test", "h-l");
+                        Collections.sort(mealsList, new Comparator<Meal>() {
+                            @Override
+                            public int compare(Meal o1, Meal o2) {
+                                if (Float.parseFloat(o1.getPrice()) > Float.parseFloat(o2.getPrice())) return -1;
+                                else if ((Float.parseFloat(o1.getPrice()) < Float.parseFloat(o2.getPrice()))) return 1;
+                                else return 0;
+                            }
+                        });
+                        break;
+                    }
                 }
+                adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -199,7 +233,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
             // Set adapter
             ListView mealListing = (ListView) findViewById(R.id.mealsListView);
-            MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, mealsList);
+            adapter = new MealsAdapter(ExploreMealsActivity.this, mealsList);
             mealListing.setAdapter(adapter);
         }
     }

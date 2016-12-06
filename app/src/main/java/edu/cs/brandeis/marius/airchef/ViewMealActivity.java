@@ -253,6 +253,11 @@ public class ViewMealActivity extends AppCompatActivity {
         queue.add(postRequest);
     }
 
+    public void onClickAcceptRequest(View view) {
+        String requestID = (String) view.getTag();
+        Log.d("request id: ", requestID);
+    }
+
     @Override
     protected void onStop() {
         super.onStop();

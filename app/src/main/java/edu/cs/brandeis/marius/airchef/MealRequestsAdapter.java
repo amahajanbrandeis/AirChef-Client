@@ -49,7 +49,8 @@ public class MealRequestsAdapter extends BaseAdapter {
 
         MealRequest entry = getItem(position);
         buyerName.setText(entry.getBuyerName());
-
+        Log.d("infl request id", entry.getId());
+        view.setTag(entry.getId());
 
         try {
             String dateString = entry.getDateAdded();

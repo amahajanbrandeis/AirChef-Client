@@ -33,6 +33,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeContainer;
     ArrayList<Meal> mealsList = new ArrayList<Meal>();
+    ArrayList<Meal> tempArr;
     static final String API_URL = "http://airchef-server.herokuapp.com/api/meal/";
     MealsAdapter adapter;
 
@@ -60,6 +61,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
             }
         });
 
+        tempArr = mealsList;
         final EditText searchBar = (EditText) findViewById(R.id.searchMealsEditText);
         searchBar.setText("");
         searchBar.addTextChangedListener(new TextWatcher() {
@@ -72,12 +74,17 @@ public class ExploreMealsActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!s.equals("") && s != null){
                     // filter list according to charsequence s
-                    ArrayList<Meal> tempArr = new ArrayList<Meal>();
+                    tempArr = new ArrayList<Meal>();
                     for (int i = 0; i < mealsList.size(); i++){
                         if (mealsList.get(i).getTitle().toLowerCase().contains(s.toString().toLowerCase())){
                             tempArr.add(mealsList.get(i));
                         }
                     }
+                    ListView mealListing = (ListView) findViewById(R.id.mealsListView);
+                    MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, tempArr);
+                    mealListing.setAdapter(adapter);
+                } else {
+                    tempArr = mealsList;
                     ListView mealListing = (ListView) findViewById(R.id.mealsListView);
                     MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, tempArr);
                     mealListing.setAdapter(adapter);
@@ -99,10 +106,14 @@ public class ExploreMealsActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String filter =  filterSpinner.getSelectedItem().toString();
 
+//                if (tempArr.isEmpty()) {
+//                    tempArr = mealsList;
+//                }
+
                 switch(filter){
                     case("A-Z"): {
                         Log.d("test", "a-zzzzz");
-                        Collections.sort(mealsList, new Comparator<Meal>() {
+                        Collections.sort(tempArr, new Comparator<Meal>() {
                             @Override
                             public int compare(Meal o1, Meal o2) {
                                 return o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
@@ -112,7 +123,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
                     }
                     case("Z-A"): {
                         Log.d("test", "Z-a");
-                        Collections.sort(mealsList, new Comparator<Meal>() {
+                        Collections.sort(tempArr, new Comparator<Meal>() {
                             @Override
                             public int compare(Meal o1, Meal o2) {
                                 int val = o1.getTitle().toLowerCase().compareTo(o2.getTitle().toLowerCase());
@@ -125,7 +136,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
                     }
                     case("Price: Low to High"): {
                         Log.d("test", "l-h");
-                        Collections.sort(mealsList, new Comparator<Meal>() {
+                        Collections.sort(tempArr, new Comparator<Meal>() {
                             @Override
                             public int compare(Meal o1, Meal o2) {
                                 if (Float.parseFloat(o1.getPrice()) > Float.parseFloat(o2.getPrice())) return 1;
@@ -137,7 +148,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
                     }
                     case("Price: High to Low"): {
                         Log.d("test", "h-l");
-                        Collections.sort(mealsList, new Comparator<Meal>() {
+                        Collections.sort(tempArr, new Comparator<Meal>() {
                             @Override
                             public int compare(Meal o1, Meal o2) {
                                 if (Float.parseFloat(o1.getPrice()) > Float.parseFloat(o2.getPrice())) return -1;
@@ -148,7 +159,9 @@ public class ExploreMealsActivity extends AppCompatActivity {
                         break;
                     }
                 }
-                adapter.notifyDataSetChanged();
+                ListView mealListing = (ListView) findViewById(R.id.mealsListView);
+                MealsAdapter adapter = new MealsAdapter(ExploreMealsActivity.this, tempArr);
+                mealListing.setAdapter(adapter);
 
             }
 
@@ -165,6 +178,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
             @Override
             public void onRefresh() {
+
                 new GetMeals().execute();
             }
         });
@@ -203,7 +217,6 @@ public class ExploreMealsActivity extends AppCompatActivity {
                         Meal meal = new Meal(JSONMeal);
                         mealsList.add(meal);
                     }
-
                 } catch (final JSONException e) {
                     Log.d("Client", "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {
@@ -233,7 +246,7 @@ public class ExploreMealsActivity extends AppCompatActivity {
 
             // Set adapter
             ListView mealListing = (ListView) findViewById(R.id.mealsListView);
-            adapter = new MealsAdapter(ExploreMealsActivity.this, mealsList);
+            adapter = new MealsAdapter(ExploreMealsActivity.this, tempArr);
             mealListing.setAdapter(adapter);
         }
     }

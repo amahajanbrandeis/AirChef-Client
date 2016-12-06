@@ -25,6 +25,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.stormpath.sdk.Stormpath;
+import com.stormpath.sdk.ui.StormpathLoginActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +46,7 @@ import java.util.Map;
 
 public class ViewMealActivity extends AppCompatActivity {
     static final String API_REQUEST_URL = "http://airchef-server.herokuapp.com/api/mealrequest";
+    static final String API_DELETE_URL = "http://airchef-server.herokuapp.com/api/meal/";
     static final String REQUEST_TAG = "NewMealActivity";
     RequestQueue queue;
 
@@ -77,7 +85,48 @@ public class ViewMealActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(ViewMealActivity.this);
         setupViews();
+        setupDrawer();
+    }
 
+    private void setupDrawer() {
+        new DrawerBuilder()
+                .withActivity(this)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName("My Profile").withIdentifier(1),
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName("Explore Meals").withIdentifier(2),
+                        new PrimaryDrawerItem().withName("My Meals").withIdentifier(3),
+                        new PrimaryDrawerItem().withName("Purchased Meals").withIdentifier(4))
+                .addStickyDrawerItems(
+                        new PrimaryDrawerItem().withName("Logout").withIdentifier(5)
+                )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        if (drawerItem != null) {
+                            Intent intent = null;
+                            if (drawerItem.getIdentifier() == 1) {
+                                intent = new Intent(ViewMealActivity.this, myProfileActivity.class);
+                            } else if (drawerItem.getIdentifier() == 2) {
+                                intent = new Intent(ViewMealActivity.this, ExploreMealsActivity.class);
+                            } else if (drawerItem.getIdentifier() == 3) {
+                                intent = new Intent(ViewMealActivity.this, MyMealsActivity.class);
+                            } else if (drawerItem.getIdentifier() == 4) {
+                                intent = new Intent(ViewMealActivity.this, PurchasedMealsActivity.class);
+                            } else if (drawerItem.getIdentifier() == 5) {
+                                Stormpath.logout();
+                                intent = new Intent(ViewMealActivity.this, StormpathLoginActivity.class);
+                            }
+                            if (intent != null) {
+                                ViewMealActivity.this.startActivity(intent);
+                            }
+                        }
+
+                        return false;
+                    }
+                })
+                .build();
     }
 
     private void setupViews() {
@@ -204,7 +253,36 @@ public class ViewMealActivity extends AppCompatActivity {
     }
 
     private void deleteMeal() {
+        StringRequest deleteRequest = new StringRequest(Request.Method.DELETE, API_DELETE_URL + meal.getId(),
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        // response
+                        Log.d("app:", response);
 
+                        Context context = getApplicationContext();
+                        CharSequence text = "Meal ended.";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                        viewMealRequestBtn.setVisibility(View.INVISIBLE);
+
+                        Intent intent = new Intent(ViewMealActivity.this, ExploreMealsActivity.class);
+                        ViewMealActivity.this.startActivity(intent);
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error.
+                        Log.d("app:", "Error: " + error.toString());
+                    }
+                }
+        );
+
+        queue.add(deleteRequest);
     }
 
     private void requestMeal() {

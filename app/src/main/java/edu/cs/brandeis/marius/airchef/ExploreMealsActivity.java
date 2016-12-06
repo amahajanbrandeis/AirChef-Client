@@ -3,13 +3,16 @@ package edu.cs.brandeis.marius.airchef;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,7 +22,17 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.stormpath.sdk.Stormpath;
+import com.stormpath.sdk.ui.StormpathLoginActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,22 +57,16 @@ public class ExploreMealsActivity extends Activity {
         setContentView(R.layout.meal_listings);
         new GetMeals().execute();
 
-        new DrawerBuilder().withActivity(this).build();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        setupDrawer();
 
         final Button newMealBtn = (Button) findViewById(R.id.newMealBtn);
         final Context context = this;
-        // Save button functionality
+
         newMealBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(context, NewMealActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        final Button myProfileBtn = (Button) findViewById(R.id.myProfileBtn);
-        myProfileBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(context, myProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -185,6 +192,48 @@ public class ExploreMealsActivity extends Activity {
                 new GetMeals().execute();
             }
         });
+    }
+
+    private void setupDrawer() {
+        new DrawerBuilder()
+                .withActivity(this)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName("My Profile").withIdentifier(1),
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName("Explore Meals").withIdentifier(2).withSelectable(false),
+                        new PrimaryDrawerItem().withName("My Meals").withIdentifier(3),
+                        new PrimaryDrawerItem().withName("Purchased Meals").withIdentifier(4))
+                .addStickyDrawerItems(
+                        new PrimaryDrawerItem().withName("Logout").withIdentifier(5)
+                )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                        if (drawerItem != null) {
+                            Intent intent = null;
+                            if (drawerItem.getIdentifier() == 1) {
+                                intent = new Intent(ExploreMealsActivity.this, myProfileActivity.class);
+                            } else if (drawerItem.getIdentifier() == 2) {
+//                                intent = new Intent(ExploreMealsActivity.this, ActionBarActivity.class);
+                            } else if (drawerItem.getIdentifier() == 3) {
+                                intent = new Intent(ExploreMealsActivity.this, MyMealsActivity.class);
+                            } else if (drawerItem.getIdentifier() == 4) {
+                                intent = new Intent(ExploreMealsActivity.this, PurchasedMealsActivity.class);
+                            } else if (drawerItem.getIdentifier() == 5) {
+                                Stormpath.logout();
+                                intent = new Intent(ExploreMealsActivity.this, StormpathLoginActivity.class);
+                            }
+                            if (intent != null) {
+                                ExploreMealsActivity.this.startActivity(intent);
+                            }
+                        }
+
+                        return false;
+                    }
+                })
+                .withSelectedItem(2)
+                .build();
     }
 
     public void onClickViewMeal(View view) {

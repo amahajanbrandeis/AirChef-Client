@@ -25,7 +25,9 @@
         <activity android:name=".ExploreMealsActivity" />
         <activity android:name=".NewMealActivity" />
         <activity android:name=".ViewMealActivity" />
-        <activity android:name=".myProfileActivity"></activity>
+        <activity android:name=".myProfileActivity" />
+        <activity android:name=".MyMealsActivity" />
+        <activity android:name=".PurchasedMealsActivity"></activity>
     </application>
 
 </manifest>

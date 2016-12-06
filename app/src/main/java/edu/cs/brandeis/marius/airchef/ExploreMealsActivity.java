@@ -1,10 +1,10 @@
 package edu.cs.brandeis.marius.airchef;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
+import com.mikepenz.materialdrawer.DrawerBuilder;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,8 +30,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
-
-public class ExploreMealsActivity extends AppCompatActivity {
+public class ExploreMealsActivity extends Activity {
 
     private SwipeRefreshLayout swipeContainer;
     ArrayList<Meal> mealsList = new ArrayList<Meal>();
@@ -42,6 +43,8 @@ public class ExploreMealsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meal_listings);
         new GetMeals().execute();
+
+        new DrawerBuilder().withActivity(this).build();
 
         final Button newMealBtn = (Button) findViewById(R.id.newMealBtn);
         final Context context = this;

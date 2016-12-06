@@ -1,2 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_ad364735c29261cbc0862d6ca78a780463618dc7/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.1.2/a1b4b8e4dc5f7bfa9186e79f9e267c1539a847b0/logging-interceptor-3.1.2.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a1b4b8e4dc5f7bfa9186e79f9e267c1539a847b0">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/logging-interceptor-3.1.2_90a5a55ed8c95d3e138c9645d99da14ead0009bd/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-s3/2.2.22/40fe82092e0ae3ca549b132a1e7e876807525176/aws-android-sdk-s3-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="40fe82092e0ae3ca549b132a1e7e876807525176">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-s3-2.2.22_db7f800cd13f03f754c117702b8b6116eb0f7dad/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.volley/volley/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.volley-volley-1.0.0_38bb28b0f2858ef9ae378c6c46625b2bfc4fcbf9/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_8ebddeb7e0b23a7d961df76aea0a1b995b2f72f7/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/customtabs/23.3.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="1d3964db19259a503a8c9467e52c344c0372ebf8">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-23.3.0_622762f85b337a6c99d29cd838cc2d08b19d1864/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.stormpath.sdk/stormpath-sdk-android/1.1.2/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="95f70d3a6293bba6ff1a2b511a1bdba90be21622">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.stormpath.sdk-stormpath-sdk-android-1.1.2_1e74b761932201e5f27d7ceb2b9088992a9947d8/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/design/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.0.1_2465c764ec46e032e83a23f278870eeef4498587/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_80b62401b83bf22f1fb88ea7aaabd5b550d51287/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d3831e7db65d6e59bb088a4db743690f54a0a60e">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_c1c518c467f3ce612d889f032225a04b6da7da7b/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_9d60ac36ba66591946bf4b5842386519e38c11e2/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.mikepenz/materialdrawer/5.8.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="dde02a9e157e4fd53a249a999f08e0fcf9ab0df0">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mikepenz-materialdrawer-5.8.0_c60690366a14de3c388dce16034d47e7941e6bc9/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.mikepenz/fastadapter/2.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="7118aee70be2579da7bc488325e2c2ba9f668514">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mikepenz-fastadapter-2.1.0_4dddcd65821b0ebc35bbe0a708db54885cece5eb/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi/1.1.0/9c665b797ef9427f6d73572642dcb5f90270f7d3/moshi-1.1.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="9c665b797ef9427f6d73572642dcb5f90270f7d3">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/moshi-1.1.0_46aaecfac34b4ede7b508847048afa960d8954a7/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_6dcf88767329ff38500c4f65b171e101747d06c9/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.1.2/7052283359001bb108753cb0583a887d3bf94c82/okhttp-3.1.2.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="7052283359001bb108753cb0583a887d3bf94c82">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.1.2_ab20536d21eadd296c7aa58a493e2d871f8b3873/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_c3f17a514013df19ddc4fd4e62b0f8acea4d8e01/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-cognitoidentityprovider/2.2.22/6ddcf148b81c8a388d17964d78cf3e26f0ae9bc/aws-android-sdk-cognitoidentityprovider-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="06ddcf148b81c8a388d17964d78cf3e26f0ae9bc">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-cognitoidentityprovider-2.2.22_c1fad9c93474fb6ba1f478f0b66f42deda78c567/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_969413f7f928cd54a6a0636b950ff6558a924ffa/classes.dex" />
+    </item>
+    <item
+        jar="/usr/local/android-studio/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.2.4_8cd7e65f7612a53d9b4b375eec76c9b6857fc72c/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.6.0_aa5223489777a13df987ce1e10b161fcd4739a8c/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/2.8.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="dcac7435781db56e25ab17c3f662227c517fc327">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mikepenz-iconics-core-2.8.0_8ac4c207a62d9e80831fb82249d416912a658e90/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-core/2.2.22/c6789de00db9d1f93faec881fa0c1f5960fb8a15/aws-android-sdk-core-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c6789de00db9d1f93faec881fa0c1f5960fb8a15">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-core-2.2.22_4b405c6fdf3ad4c72b9403818b661227eecef7ae/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.mikepenz/materialize/1.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="84c98924eff3106f306c3e233cc2e6d84744f518">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.mikepenz-materialize-1.0.0_7cba09e25a25ec5eeff7af7dfd62100f78fb8125/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_cda39aaba8ae53694be555e6f6c73f5de8685424/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_a073c3ec9578ae18f10667e1d8a3055a296639e5/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="7879317e4622799d5a3f454665e46be8034552a7">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_43d08a93bd1e669d25b10b74cc7e6290b4b81750/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.1_1656abe926e7ab4198670dc2fef3562a5d8f43f2/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-cognito/2.2.22/9bef9beddb1b7579713905702d8219d516bd3954/aws-android-sdk-cognito-2.2.22.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="9bef9beddb1b7579713905702d8219d516bd3954">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/aws-android-sdk-cognito-2.2.22_c0f1eddc26b9a2952d41ae163a7a44578c5faf41/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_e0d7dde2d101ce8ad4713df69b4d049b43e2c5c4/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_9e59f0cb176071946e8fa05f8c6885470059afc6/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.stormpath.sdk/stormpath-sdk-android-ui/1.1.2/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="9bdc3a35b2fb271e419727728c4a380054b1f6eb">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.stormpath.sdk-stormpath-sdk-android-ui-1.1.2_3b7fec323122c7f1e06ce08026d27273aa7fa87f/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/transition/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.0.1_2fdec8821a3d6f1e518246f78618070daed5ef76/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_fa874b1b88e280e5211e07226a5084ce1acb269e/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_73c2b29bd3e4cab41cb7cf1a933775d58cca5a18/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_9fab7b2140d0cb96d1af09b838bc8f0e152e7cad/classes.dex" />
+    </item>
+    <item
+        jar="/home/marius/dev/AirChef-Client/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/marius/dev/AirChef-Client/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_7f98c2ecc61abcb7df622307a6f6d097118e1600/classes.dex" />
+    </item>
+
+</items>
